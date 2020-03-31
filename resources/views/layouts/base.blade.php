@@ -20,20 +20,15 @@
    <div id="container"> 
      	@show
       	 @section('content')	
-       @show 
-  
+       @show  
     </div> 
      @section('footer')
    <footer class="  fixed-bottom navbar-light bg-faded">
-    <div class=" text-center py-3">© <?=date("Y") ?> Copyright:
-     
+    <div class=" text-center py-3">© <?=date("Y") ?> Copyright: 
     </div>
    </footer>
-   @show
- 
+   @show 
     <script type="text/javascript" src="{{asset('js/app.js') }}?ver={{env('APP_Version')}}"></script>
-
-
 @yield('scripts')
    </body>
 </html>

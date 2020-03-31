@@ -16,6 +16,13 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string("Apellido")->nullable()->default(null);
+            $table->string("Telefono")->nullable()->default(null);
+            $table->date("Fecha_De_Nacimiento")->nullable()->default(null);
+            $table->string("url_Pagina_Personal")->nullable()->default(null);
+            $table->boolean("Visble_perfil")->default(FALSE);
+            $table->boolean("recibir_Correos")->default(false);
+            $table->float("puntos")->comment("sitema de puntos de la pagina para ganar cosas")->default(0);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
