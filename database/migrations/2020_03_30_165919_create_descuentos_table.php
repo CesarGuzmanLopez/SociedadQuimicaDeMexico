@@ -31,8 +31,7 @@ class CreateDescuentosTable extends Migration
             $table->foreign("ID_Rol_Descuento")->references("id")->on("roles")->cascadeOnDelete();
             $table->foreign("ID_Usuario_Aplica")->references("id")->on("users")->cascadeOnDelete();
             $table->foreign("Paquetes_No_Aplica")->references("id")->on("Paquetes")->cascadeOnDelete();
-            $table->foreign("Paquetes_Aplica")->references("id")->on("Paquetes")->cascadeOnDelete();
-            
+            $table->foreign("Paquetes_Aplica")->references("id")->on("Paquetes")->cascadeOnDelete(); 
             
         });
     }

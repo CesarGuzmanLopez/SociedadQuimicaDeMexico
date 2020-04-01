@@ -39,12 +39,9 @@ class CreateBolsaTrabajosTable extends Migration
             $table->unsignedBigInteger("ID_Trabajo");
             $table->foreign('ID_Trabajo')->references('id')->on('bolsa__trabajo'); 
             $table->boolean("status")->default(false);
-            $table->timestamps();
-            
-        });
-       
-    }
-
+            $table->timestamps(); 
+        });   
+    } 
     /**
      * Reverse the migrations.
      *
