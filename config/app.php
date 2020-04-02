@@ -174,7 +174,8 @@ return [
         App\Providers\RouteServiceProvider::class, 
 		App\Providers\RolesServiceProvider::class,
         App\Providers\PermissionServiceProvider::class,
-        App\Providers\MinifiedViewServiceProvider::class,
+        App\Providers\MinifiedViewServiceProvider::class, 
+        Reliese\Coders\CodersServiceProvider::class,
         
     ],
 

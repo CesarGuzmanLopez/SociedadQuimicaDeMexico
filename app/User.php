@@ -1,29 +1,36 @@
 <?php
 
-namespace App;
-
+namespace App; 
 use App\Traits\HasRolesAndPermissions;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+
+/**
+ * The attributes that are mass assignable
+ * @property string $name
+ * @property string $email
+ * @property string $Telefono
+ * @property date $Fecha_De_Nacimiento
+ * @property string $url_Pagina_Personal
+ * @property boolean $Visble_perfil
+ * @property boolean $recibir_Correos
+ * @property float $puntos
+ */
+
+
 class User extends Authenticatable
 {
-    use Notifiable, HasRolesAndPermissions;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    use Notifiable, HasRolesAndPermissions;    
+    
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'Apellido', 'Telefono', 'Fecha_De_Nacimiento','url_Pagina_Personal',
+        'Visble_perfil',  'recibir_Correos', 'puntos', 'email', 'password', 
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
-     *
+     * The attributes that should be hidden for arrays. 
      * @var array
      */
     protected $hidden = [

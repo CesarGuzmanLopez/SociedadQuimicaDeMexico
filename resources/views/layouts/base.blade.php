@@ -17,10 +17,11 @@
  	<div class="sidebar ">
     @include('partials.menu')
    	</div> 
+   	@show
    <div id="container"> 
-     	@show
-      	 @section('content')	
-       @show  
+     	
+      	 @yield('content')	
+        
     </div> 
      @section('footer')
    <footer class="  fixed-bottom navbar-light bg-faded">

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.base')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -13,8 +13,11 @@
                 @endif 
 	            <h1> 
                	@can('manage-users')
-            		 manejador usuario
+            		 manejador usuarioa asdasdad
                	@endcan
+               	        {{ Auth::user()->Apellido }}
+               	        }
+
                 </h1>
 				<h2>
 				@role("web-developer")

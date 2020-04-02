@@ -33,18 +33,15 @@ trait HasRolesAndPermissions
     }
     public function hasPermission($permission)
     {
-        return (bool) $this->permissions->where('slug', $permission)->count();
-
-            
+        return (bool) $this->permissions->where('slug', $permission)->count();  
     }
     
    
     public function hasPermissionThroughRole($permission)
     {
         foreach ($permission->roles as $role){
-            if($this->roles->contains($role)) {
-                return true;
-            }
+            if($this->roles->contains($role)) 
+                return true; 
         }
         return false;
     }
