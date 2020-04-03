@@ -17,6 +17,7 @@ use Illuminate\Notifications\Notifiable;
  * @property boolean $Visble_perfil
  * @property boolean $recibir_Correos
  * @property float $puntos
+ * @property string $Nombre_de_usuario
  */
 
 
@@ -26,7 +27,7 @@ class User extends Authenticatable
     
     protected $fillable = [
         'name', 'Apellido', 'Telefono', 'Fecha_De_Nacimiento','url_Pagina_Personal',
-        'Visble_perfil',  'recibir_Correos', 'puntos', 'email', 'password', 
+        'Visble_perfil',  'recibir_Correos', 'puntos', 'email', 'password', 'Nombre_de_usuario',
     ];
 
     /**

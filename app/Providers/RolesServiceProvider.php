@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Providers;
-
+ 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 
 class RolesServiceProvider extends ServiceProvider
 {
@@ -26,14 +27,15 @@ class RolesServiceProvider extends ServiceProvider
     {
 
 
-        \Blade::directive('role', function ($role){
+        Blade::directive('role', function ($role){
         
-            return "<?php if(auth()->check() && auth()->user()->hasRole({$role})){?>";
+            return "<?php if(auth()->check() && auth()->user()->hasRole({$role})):?>";
        
         });
             
-        \Blade::directive('endrole', function (){
-            return "<?php } ?>";
+        
+        Blade::directive('endrole', function (){
+            return "<?php endif ?>";
         });
 }
 }

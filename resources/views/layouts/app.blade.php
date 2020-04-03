@@ -16,11 +16,12 @@
   	<div class="sidebar ">
    		 @include('partials.menu')
    	</div> 
+   	<div>
       	 @yield('content')	 
     </div> 
      @section('footer')
    <footer class="  fixed-bottom navbar-light bg-faded">
-    <div class=" text-center py-3">© <?=date("Y") ?> Copyright: 
+    <div class=" text-center py-3">©<?=date("Y") ?> Copyright: 
     </div>
    </footer>
    @show 
