@@ -3,8 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use PhpParser\Builder\Function_;
-use League\CommonMark\Reference\Reference;
 
 class CreateCarritosTable extends Migration
 {
@@ -34,10 +32,8 @@ class CreateCarritosTable extends Migration
             $table->timestamps();
             $table->foreign("ID_Carrito")->references("id")->on("carritos") ->cascadeOnDelete();
             $table->foreign("ID_Var_Prod")->references("id")->on("variaciones_producto")->cascadeOnDelete();
-        });
-        
-    }
-
+        });   
+    } 
     /**
      * Reverse the migrations.
      *

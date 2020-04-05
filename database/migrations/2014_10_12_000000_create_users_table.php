@@ -23,10 +23,11 @@ class CreateUsersTable extends Migration
             $table->string("url_Pagina_Personal")->nullable()->default(null);
             $table->boolean("Visble_perfil")->default(FALSE);
             $table->boolean("recibir_Correos")->default(false);
-            $table->float("puntos")->comment("sitema de puntos de la pagina para ganar cosas")->default(0);
-            $table->string('email')->unique();
+            $table->float("puntos")->comment("Sistema de puntos de la pagina para ganar cosas")->default(0);
+            $table->string('email')->unique()->index();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('Codigo_Confirmacion')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

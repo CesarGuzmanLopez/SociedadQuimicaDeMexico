@@ -10,9 +10,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="Classification" content="Quimica "><meta name="msapplication-TileColor" content=" #009900" />
       <meta charset="utf-8">
       <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}?ver={{env('APP_Version')}}">
-        @yield('styles')  
-    </head>
-    <body> 
+		@yield('styles') 
+	</head> 
+    <body  >  
+
   	<div class="sidebar ">
    		 @include('partials.menu')
    	</div> 

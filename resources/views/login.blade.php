@@ -13,7 +13,8 @@
                   @csrf
                   <div class="form-group">
                      <label>User Name</label>
-                     <input type="text" name="Usuario"  class="form-control" minlength="4" placeholder="'Correo' o 'nombre de usuario'" required> 
+                     
+                     <input type="text" name="Usuario"  class="form-control" minlength="4" placeholder="'Correo' o 'nombre de usuario'"   required> 
                   </div>
                   <div class="form-group">
                      <label>Contraseña</label>
@@ -21,7 +22,8 @@
                   </div>
                   <button type=submit class="btn btn-secondary">acceder</button>
                </form>
-            	<a href="{{route('Registrarse')}}"></a>
+            	<a href="{{route('Registro')}}">Registro</a>
+               	<a href="{{route('Recuperar_pass')}}">Recuperar contraseña</a>
             </div>
          </div>
 </div>
