@@ -5,6 +5,7 @@ use App\Traits\HasRolesAndPermissions;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable; 
+use App\Models\password_resets;
 /**
  * class User
  * @author Cesar Gerardo Guzman Lopez mail 88-8@live.com.mx
@@ -61,6 +62,6 @@ class User extends Authenticatable
      */
     public function password_reset()
     {
-        return $this->hasOne('App\password_resets',"email","email");
+        return $this->hasOne(password_resets::class,"email","email");
     }
 }

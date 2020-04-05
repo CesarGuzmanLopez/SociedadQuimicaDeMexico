@@ -2,11 +2,13 @@
 
 /**
  * Created by Reliese Model.
+ * @author Cesar Gerardo Guzman Lopez
  */
 
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id
  * @property string $name
+ * @property string $Nombre_de_usuario
  * @property string $Apellido
  * @property string $Telefono
  * @property Carbon $Fecha_De_Nacimiento
@@ -25,6 +28,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $email
  * @property Carbon $email_verified_at
  * @property string $password
+ * @property string $Codigo_Confirmacion
  * @property string $remember_token
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -56,6 +60,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Collection|Pagina[] $paginas
  * @property Collection|Paquete[] $paquetes
  * @property Collection|ParticipanteSeccion[] $participante_seccions
+ * @property PasswordReset $password_reset
  * @property Collection|Patrocinadore[] $patrocinadores
  * @property Collection|Postulacione[] $postulaciones
  * @property Collection|Pregunta[] $preguntas
@@ -74,7 +79,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property Collection|Role[] $roles
  * @property Collection|UsuarioMembresium[] $usuario_membresia
  * @property Collection|UsuariosMembresia[] $usuarios__membresias
- *
+ * @method  User where()  where(fixed $param, fixed $param2)
+ * @method  User first() first(void)
  * @package App\Models
  */
 class User extends Model
@@ -99,6 +105,7 @@ class User extends Model
 
 	protected $fillable = [
 		'name',
+		'Nombre_de_usuario',
 		'Apellido',
 		'Telefono',
 		'Fecha_De_Nacimiento',
@@ -109,6 +116,7 @@ class User extends Model
 		'email',
 		'email_verified_at',
 		'password',
+		'Codigo_Confirmacion',
 		'remember_token'
 	];
 
@@ -245,6 +253,11 @@ class User extends Model
 	public function participante_seccions()
 	{
 		return $this->hasMany(ParticipanteSeccion::class, 'ID_User');
+	}
+
+	public function password_reset()
+	{
+		return $this->hasOne(PasswordReset::class, 'email', 'email');
 	}
 
 	public function patrocinadores()

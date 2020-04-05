@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Exception;
 use App\Mail\Verificacion;
 use App\Mail\Recuperar_pass;
-use App\password_resets;
+use App\Models\password_resets;
 
 /**
  * @author Cesar Gerardo Guzman Lopez mail 88-8@live.com.mx
@@ -147,7 +147,7 @@ class PublicaController extends Controller
             }
             if($email){    
                 $user =  User::where("email",$email)->first();//com
-                $Password_reset = $user->password_reset();
+                $Password_reset = $user->password_reset(); 
                 if($Password_reset) $Password_reset->delete();
                 $Password_reset = new password_resets();
                 $Password_reset->token =  Str::random(15); 
@@ -172,7 +172,7 @@ class PublicaController extends Controller
     }
     public function Recuperar(string $codigo){
         $token = password_resets::where("token",$codigo)->first();
- //      return dd($token);
+        //      return dd($token);
         $user = $token->user; 
         $data = array(
             'token'=>$codigo,
