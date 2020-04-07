@@ -9,6 +9,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash; 
+use Exception;
 use App\Mail\Verificacion;
 use App\Mail\Recuperar_pass;
 use App\Models\password_resets;

@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 include_path=0;/Sociedad Quimica De M\u00E9xico\u00051;C\:/xampp/htdocs/composer.phar\u00051;C\:/xampp/php/pharcommand.phar\u00051;C\:/xampp/php/windowsXamppPhp/pharcommand.phar
+org.eclipse.php.core.phpDoc=true
 org.eclipse.php.core.taskCaseSensitive=enabled
 org.eclipse.php.core.taskPriorities=NORMAL,HIGH,NORMAL,NORMAL
 org.eclipse.php.core.taskTags=TODO,FIXME,XXX,@todo
