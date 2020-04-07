@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Created by Reliese Model.
+ * 
+ * Creado Usando  Reliese Model.
+ * @author Cesar Gerardo Guzman López
  */
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class UsersRole
  * 
  * @property int $user_id
  * @property int $role_id
@@ -29,12 +29,18 @@ class UsersRole extends Model
 		'user_id' => 'int',
 		'role_id' => 'int'
 	];
-
+/**
+ * 
+ * @return  Role
+ */
 	public function role()
 	{
 		return $this->belongsTo(Role::class);
 	}
-
+/**
+ * 
+ * @return User
+ */
 	public function user()
 	{
 		return $this->belongsTo(User::class);

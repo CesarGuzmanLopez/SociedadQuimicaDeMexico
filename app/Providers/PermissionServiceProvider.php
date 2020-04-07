@@ -1,8 +1,14 @@
 <?php
 
 namespace App\Providers;
+/**
+ *
+ * Creado Usando  Reliese Model.
+ * @author Cesar Gerardo Guzman López
+ */
 
-use App\Permission;
+use App\Models\Permission;
+
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,8 +32,10 @@ class PermissionServiceProvider extends ServiceProvider
     public function boot()
     { 
          try { 
-            Permission::get()->map(function ($permission) {
-                Gate::define($permission->slug, function ($user) use ($permission) {
+           
+             Permission::get()->map(function ($permission) { 
+      
+                 Gate::define($permission->slug, function ($user) use ($permission) {
                    return true;
                 });
             });             

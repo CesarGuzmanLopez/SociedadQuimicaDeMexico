@@ -1,9 +1,9 @@
-{{--
-<!--
-    @author Cesar Gerardo Guzman Lopez mail 88-8live.com.mx 
-    vista formulario de registro
- -->
---}}
+<?php
+/**
+*    @author Cesar Gerardo Guzman Lopez mail 88-8live.com.mx 
+*    Vista del formulario de registro
+*/
+?>
 @extends('layouts.app')
 @section('content')
 <form action="{{route('Registrar')}}" method="post">

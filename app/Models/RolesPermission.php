@@ -1,7 +1,8 @@
 <?php
-
 /**
- * Created by Reliese Model.
+ *
+ * Creado Usando  Reliese Model.
+ * @author Cesar Gerardo Guzman López
  */
 
 namespace App\Models;
@@ -35,12 +36,18 @@ class RolesPermission extends Model
 	protected $fillable = [
 		'Verificado'
 	];
-
+/**
+ *  Usuario tiene permiso
+ * @return Permission
+ */
 	public function permission()
 	{
 		return $this->belongsTo(Permission::class);
 	}
-
+/**
+ * Usuario tiene Role
+ * @return  Role
+ */
 	public function role()
 	{
 		return $this->belongsTo(Role::class);

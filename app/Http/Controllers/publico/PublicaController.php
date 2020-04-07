@@ -116,6 +116,7 @@ class PublicaController extends Controller
      * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Http\RedirectResponse
      */
     public function Verificar($request){
+        
         $user = User::where("Codigo_Confirmacion",$request)->first();
         if(!$user)  return redirect("/");
         $user->email_verified_at =date('Y-d-m H:i:s.v');
@@ -132,6 +133,7 @@ class PublicaController extends Controller
      * @return string
      */
     public function Recuperar_post(Request $request){
+        
         $request->validate([
             'g-recaptcha-response' => 'required|captcha',
         ]); 
@@ -168,9 +170,13 @@ class PublicaController extends Controller
     }
     
     public function Recuperar_pass(){
+        if (Auth::check()) return redirect("Usuario");
+        
         return view("Recuperar");
     }
     public function Recuperar(string $codigo){
+        if (Auth::check()) return redirect("Usuario");
+        
         $token = password_resets::where("token",$codigo)->first();
         //      return dd($token);
         $user = $token->user; 
@@ -191,7 +197,7 @@ class PublicaController extends Controller
         try{
         $token = password_resets::where("token",$request->token)->first();
         $user = $token->user; 
-        $user->password_reset()->delete();
+        $user->password_reset->delete();
         $user->password =  Hash::make($request->password);
         $user->save();
         }catch (\Exception $e){

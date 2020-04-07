@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Role;
-use App\User;
+use App\Models\User;
 use App\Models\Permission;
 
 
@@ -25,10 +25,9 @@ class UserSeeder extends Seeder
             $manager = Role::where('slug', 'project-manager')->first();
             $createTasks = Permission::where('slug','create-tasks')->first();
             $manageUsers = Permission::where('slug','manage-users')->first();
-            
+           
             $user0 = new User();
-            $user0->name = 'Cesar';
-            
+            $user0->name = 'Cesar'; 
             $user0->email = 'admin@admin.com';
             $user0->Nombre_de_usuario="Cesar_G";
             $user0->password = bcrypt('password');

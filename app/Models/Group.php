@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Created by Reliese Model.
+ * Usuarios que pertenecen a un grupo
  */
 
 namespace App\Models;

@@ -15,7 +15,7 @@ class RoleSeeder extends Seeder
     {
         $manager = new Role();
         $manager->name = 'Project Manager';
-        $manager->slug = 'project-manager';
+        $manager->slug =    'project-manager';
         $manager->save();
         
         $developer = new Role();

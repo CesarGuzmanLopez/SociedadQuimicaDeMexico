@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Created by Reliese Model.
+ * 
+ * Creado Usando  Reliese Model.
+ * @author Cesar Gerardo Guzman López
  */
-
 namespace App\Models;
 
 use Carbon\Carbon;
@@ -65,9 +66,8 @@ class Membresia extends Model
 
 	public function role()
 	{
-		return $this->belongsTo(Role::class, 'ID_Rol_Incopatible');
-	}
-
+		return $this->belongsTo(Role::class, 'ID_Rol_A_Recibir');
+	} 
 	public function user()
 	{
 		return $this->belongsTo(User::class, 'ID_User');

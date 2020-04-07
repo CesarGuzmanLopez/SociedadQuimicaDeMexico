@@ -1,7 +1,12 @@
 <?php
+/**
+ *
+ * Creado Usando  Reliese Model.
+ * @author Cesar Gerardo Guzman López
+ */
 namespace app\Traits;
-use App\Role;
-use App\Permission;
+use App\Models\Role;
+use App\Models\Permission;
 trait HasRolesAndPermissions
 {
     /**
@@ -31,17 +36,26 @@ trait HasRolesAndPermissions
         }
         return false;
     }
+    /**
+     * Verifica si un usuario tiene un permiso directo
+     * @param string $permission
+     * @return boolean
+     */
     public function hasPermission($permission)
     {
-        return (bool) $this->permissions->where('slug', $permission)->count();  
+        return (bool) $this->permissions->where('slug', $permission)->count();
     }
     
-   
+    /**
+     * verifica si un 
+     * @param string $permission
+     * @return boolean
+     */
     public function hasPermissionThroughRole($permission)
     {
         foreach ($permission->roles as $role){
-            if($this->roles->contains($role)) 
-                return true; 
+            if($this->roles->contains($role))
+                return true;
         }
         return false;
     }
@@ -87,6 +101,7 @@ trait HasRolesAndPermissions
     }
     
     /**
+     *  
      * @param mixed ...$permissions
      * @return HasRolesAndPermissions
      */
@@ -95,5 +110,4 @@ trait HasRolesAndPermissions
         $this->permissions()->detach();
         return $this->givePermissionsTo($permissions);
     }
-}
-
+} 

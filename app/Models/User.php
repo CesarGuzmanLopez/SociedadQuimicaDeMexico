@@ -1,15 +1,16 @@
 <?php
 
 /**
- * Created by Reliese Model.
- * @author Cesar Gerardo Guzman Lopez
- */
+  * @author Cesar Gerardo Guzman Lopez
+  * 
+  */
 
 namespace App\Models;
-
+/*
 use Carbon\Carbon;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Database\Eloquent\Collection;
+*/
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -20,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Nombre_de_usuario
  * @property string $Apellido
  * @property string $Telefono
+ * @property string $path_Image
  * @property Carbon $Fecha_De_Nacimiento
  * @property string $url_Pagina_Personal
  * @property bool $Visble_perfil
@@ -30,6 +32,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $password
  * @property string $Codigo_Confirmacion
  * @property string $remember_token
+ * @property string $Grado_Academico
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * 
@@ -60,7 +63,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Collection|Pagina[] $paginas
  * @property Collection|Paquete[] $paquetes
  * @property Collection|ParticipanteSeccion[] $participante_seccions
- * @property PasswordReset $password_reset
+ * @property password_resets $password_reset
  * @property Collection|Patrocinadore[] $patrocinadores
  * @property Collection|Postulacione[] $postulaciones
  * @property Collection|Pregunta[] $preguntas
@@ -91,18 +94,15 @@ class User extends Model
 		'Visble_perfil' => 'bool',
 		'recibir_Correos' => 'bool',
 		'puntos' => 'float'
-	];
-
+	]; 
 	protected $dates = [
 		'Fecha_De_Nacimiento',
 		'email_verified_at'
-	];
-
+	]; 
 	protected $hidden = [
-		'password',
-		'remember_token'
-	];
-
+	    'id','password', 'remember_token','Codigo_Confirmacion',
+	    'created_at','updated_at',
+	]; 
 	protected $fillable = [
 		'name',
 		'Nombre_de_usuario',
@@ -117,7 +117,9 @@ class User extends Model
 		'email_verified_at',
 		'password',
 		'Codigo_Confirmacion',
-		'remember_token'
+		'remember_token',
+	    'path_Image',
+	    'Grado_Academico',
 	];
 
 	public function asistentes_cursos()
@@ -254,10 +256,12 @@ class User extends Model
 	{
 		return $this->hasMany(ParticipanteSeccion::class, 'ID_User');
 	}
-
+    /**
+     * @return password_resets;
+     */
 	public function password_reset()
 	{
-		return $this->hasOne(PasswordReset::class, 'email', 'email');
+	    return $this->hasOne(password_resets::class, 'email', 'email');
 	}
 
 	public function patrocinadores()

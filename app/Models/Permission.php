@@ -1,7 +1,9 @@
 <?php
 
 /**
- * Created by Reliese Model.
+ * 
+ * Creado Usando  Reliese Model.
+ * @author Cesar Gerardo Guzman López
  */
 
 namespace App\Models;
@@ -32,19 +34,27 @@ class Permission extends Model
 	protected $fillable = [
 		'name',
 		'slug'
-	];
-
+	]; 
+	/**
+	 * 
+	 * @return Categoria 
+	 */
 	public function categorias()
 	{
 		return $this->hasMany(Categoria::class, 'ID_Permiso');
 	}
-
+    /**
+     * 
+     * @return Role
+     */
 	public function roles()
 	{
 		return $this->belongsToMany(Role::class, 'roles_permissions')
 					->withPivot('Verificado');
 	}
-
+    /** 
+     *  @return User
+     */
 	public function users()
 	{
 		return $this->belongsToMany(User::class, 'users_permissions');

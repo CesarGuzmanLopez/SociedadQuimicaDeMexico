@@ -1,7 +1,9 @@
 <?php
 
 /**
- * Created by Reliese Model.
+ * 
+ * Creado Usando  Reliese Model.
+ * @author Cesar Gerardo Guzman López
  */
 
 namespace App\Models;
@@ -15,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id
  * @property string $name
+ * @property string $Valor  Valor jerarquico que tiene este rol
  * @property string $slug
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -33,30 +36,47 @@ class Role extends Model
 
 	protected $fillable = [
 		'name',
-		'slug'
+		'slug',
+	    'Valor',
 	];
-
+/**
+ * Regresa los descuento que podria tener este rol
+ * @return Descuento
+ */
+	
 	public function descuentos()
 	{
 		return $this->hasMany(Descuento::class, 'ID_Rol_Descuento');
 	}
-
+    /**
+     * 
+     * @return Group
+     */
 	public function groups()
 	{
 		return $this->hasMany(Group::class, 'ID_Rol');
 	}
-
+    /**
+     * El rol que recibiria al escojer una membresia
+     * @return Membresia
+     */
 	public function membresias()
 	{
-		return $this->hasMany(Membresia::class, 'ID_Rol_Incopatible');
+		return $this->hasMany(Membresia::class, 'ID_Rol_A_Recibir');
 	}
-
+    	
+    /**
+     * Que permisos tiene este rol
+     * @return Permission
+     */
 	public function permissions()
 	{
-		return $this->belongsToMany(Permission::class, 'roles_permissions')
-					->withPivot('Verificado');
-	}
-
+		return $this->belongsToMany(Permission::class, 'roles_permissions')->withPivot('Verificado');
+	} 
+	/**
+	 * Los usuarios que tienen este rol
+	 * @return User
+	 */
 	public function users()
 	{
 		return $this->belongsToMany(User::class, 'users_roles');

@@ -1,7 +1,8 @@
 <?php
-
 /**
- * Created by Reliese Model.
+ *
+ * Creado Usando  Reliese Model.
+ * @author Cesar Gerardo Guzman López
  */
 
 namespace App\Models;
@@ -29,12 +30,17 @@ class UsersPermission extends Model
 		'user_id' => 'int',
 		'permission_id' => 'int'
 	];
-
+/**
+ * 
+ * @return Permission
+ */
 	public function permission()
 	{
 		return $this->belongsTo(Permission::class);
 	}
-
+/**
+ * @return user 
+ */
 	public function user()
 	{
 		return $this->belongsTo(User::class);

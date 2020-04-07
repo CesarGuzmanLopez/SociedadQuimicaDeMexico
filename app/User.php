@@ -1,5 +1,9 @@
 <?php
-
+/**
+ *
+ * Creado Usando  Reliese Model.
+ * @author Cesar Gerardo Guzman López
+ */
 namespace App; 
 use App\Traits\HasRolesAndPermissions;
 
@@ -12,8 +16,9 @@ use App\Models\password_resets;
  * 
  * The attributes that are mass assignable
  * @property string $name  nombre del usuario
- * dd
+ * @property string $Grado_Academico 
  * @property string Apellido
+ * @property string $path_Image
  * @property string $email correo electronico del usuario
  * @property string $Telefono
  * @property date $Fecha_De_Nacimiento
@@ -37,7 +42,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'Apellido', 'Telefono', 'Fecha_De_Nacimiento','url_Pagina_Personal',
         'Visble_perfil',  'recibir_Correos', 'puntos', 'email', 'password', 'Nombre_de_usuario',"remember_token",
-        'Codigo_Confirmacion',        
+        'Codigo_Confirmacion',   'Grado_Academico',     
     ];
 
     /**
