@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Exception;
 use App\Mail\Verificacion;
 use App\Mail\Recuperar_pass;
-use App\Models\password_resets;
-
+use App\Models\password_resets; 
 /**
  * @author Cesar Gerardo Guzman Lopez mail 88-8@live.com.mx
  * @version 0.1
@@ -199,7 +198,7 @@ class PublicaController extends Controller
         $token = password_resets::where("token",$request->token)->first();
         $user = $token->user; 
         $user->password_reset->delete();
-        $user->password =  Hash::make($request->password);
+        $user->password =  bcrypt($request->password);
         $user->save();
         }catch (Exception $e){
             return redirect()->route("Login");
