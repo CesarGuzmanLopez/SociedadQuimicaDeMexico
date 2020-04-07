@@ -4,8 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 
+ 
 class RoleMiddleware
 {
+
     /**
      * Handle an incoming request.
      * @param $request
@@ -14,6 +16,7 @@ class RoleMiddleware
      * @param null $permission
      * @return mixed
      */
+    
     public function handle($request, Closure $next, $role, $permission = null)
     {
         if(!auth()->user()->hasRole($role)) {

@@ -12,8 +12,7 @@
       <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}?ver={{env('APP_Version')}}">
 		@yield('styles') 
 	</head> 
-    <body  >  
-
+    <body>
   	<div class="sidebar ">
    		 @include('partials.menu')
    	</div> 
@@ -21,10 +20,10 @@
       	 @yield('content')	 
     </div> 
      @section('footer')
-   <footer class="  fixed-bottom navbar-light bg-faded">
+   <!-- ooter class="  fixed-bottom navbar-light bg-faded">
     <div class=" text-center py-3">©<?=date("Y") ?> Copyright: 
     </div>
-   </footer>
+   </footer-->
    @show 
     <script type="text/javascript" src="{{asset('js/app.js') }}?ver={{env('APP_Version')}}"></script>
 @yield('scripts')

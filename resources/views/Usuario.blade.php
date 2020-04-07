@@ -8,5 +8,7 @@
 @section('content')
  {!!Auth::User()!!}
 <a href="{{route('Usuario/Cambiar_Perfil')}}" >Modificar perfil</a>
-
+@can('create-tasks')
+dflksjlk
+@endcan
 @endsection

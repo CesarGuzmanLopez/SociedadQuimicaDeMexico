@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Route;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Exception;
+use Illuminate\Support\Facades\Hash; 
 use App\Mail\Verificacion;
 use App\Mail\Recuperar_pass;
 use App\Models\password_resets;
@@ -74,6 +73,7 @@ class PublicaController extends Controller
             Mail::to($user->email)->send(new  Verificacion($data)); 
             
             $user->save();
+      
         } catch (Exception $e) {
             
         } 
@@ -200,7 +200,7 @@ class PublicaController extends Controller
         $user->password_reset->delete();
         $user->password =  Hash::make($request->password);
         $user->save();
-        }catch (\Exception $e){
+        }catch (Exception $e){
             return redirect()->route("Login");
         }
         return redirect()->route("Login");   

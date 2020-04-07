@@ -31,4 +31,8 @@ Route::group(['middleware' =>"auth", 'prefix' => 'Usuario', 'as' => 'Usuario'], 
     Route::get("Cambiar_Perfil",            "Sesion\SesionController@Cambiar_Perfil")->name("/Cambiar_Perfil");
     Route::post("/Cambiar_Perfil_post","Sesion\SesionController@Cambiar_Perfil_post")->name("/Cambiar_Perfil_post");
 });
+Route::group(["middleware"=>'auth', 'prefix'=>'RolesPermisos', 'as'=>'RolesPermisos'],function(){
+    Route::get('/', "RolesPermisos@index")->named('/');
+    
+});
 //Route::get('/home', 'HomeController@index')->name('home');//->middleware('role:web-developer');;
