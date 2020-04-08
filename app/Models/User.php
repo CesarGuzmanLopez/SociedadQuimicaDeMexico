@@ -82,8 +82,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property Collection|Role[] $roles
  * @property Collection|UsuarioMembresium[] $usuario_membresia
  * @property Collection|UsuariosMembresia[] $usuarios__membresias
- * @method  User where()  where(fixed $param, fixed $param2)
+ * @method User   where()  where(fixed $param, fixed $param2)
  * @method  User first() first(void)
+ * @method  User  get() get(void)
  * @package App\Models
  */
 class User extends Model
@@ -257,7 +258,7 @@ class User extends Model
 		return $this->hasMany(ParticipanteSeccion::class, 'ID_User');
 	}
     /**
-     * @return password_resets;
+     * @return;
      */
 	public function password_reset()
 	{
@@ -333,12 +334,19 @@ class User extends Model
 	{
 		return $this->hasMany(TipoParticipanteSeccion::class, 'ID_User');
 	}
-
+	/**
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+	 */
 	public function permissions()
 	{
 		return $this->belongsToMany(Permission::class, 'users_permissions');
 	}
 
+	/**
+	 * 
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+	 */
 	public function roles()
 	{
 		return $this->belongsToMany(Role::class, 'users_roles');

@@ -32,7 +32,7 @@
 					<option value="Licenciado" {{(Auth::user()->Grado_Academico ==="Licenciado" )?"selected":""  }}>Licenciado</option>
 					<option value="Maestro" {{(Auth::user()->Grado_Academico ==="Maestro" )?"selected":""  }}>Maestro</option>
 					<option value="Doctor" {{(Auth::user()->Grado_Academico ==="Doctor" )?"selected":""  }}>Doctor</option>
-				</select> 
+			</select> 
 			</div>
 			<div>
 				@if(Auth::user()->path_Image)

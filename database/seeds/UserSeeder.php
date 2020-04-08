@@ -34,7 +34,8 @@ class UserSeeder extends Seeder
             $user0->name="";
             $user0->save();
             $user0->roles()->attach($developer);
-            $user0->permissions()->attach($createTasks);
+         	
+         	$user0->permissions()->attach($createTasks);
             
             
             $user1 = new User();

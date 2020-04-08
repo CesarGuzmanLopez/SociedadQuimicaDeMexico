@@ -36,9 +36,9 @@ class SesionController extends Controller
     public function Cambiar_Perfil_post(Request $request) {
         $this->validate($request, [
             'name'                  => 'required|string|min:3|max:35',
-            'email'                 => 'required|email|min:3|max:35',
+            'email'                 => 'required|email|min:3|max:35|unique:users',
             'url_Pagina_Personal'=>"active_url|nullable",
-            'Nombre_de_usuario'=>"alpha_dash|nullable",
+            'Nombre_de_usuario'=>"alpha_dash|nullable|unique:users",
         ]);
         
         $user = User::where("id",Auth::user()->id)->first();

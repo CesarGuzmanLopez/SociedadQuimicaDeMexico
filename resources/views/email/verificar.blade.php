@@ -14,6 +14,6 @@
 		Verificar
 	</a>
 	</b> 	 
-<a href="{{url('Verificar').'/'.$Codigo_Confirmacion}}">	<p>{{url('Verificar').'/'.$Codigo_Confirmacion}}</p></a>
+<p><a href="{{url('Verificar').'/'.$Codigo_Confirmacion}}">	{{url('Verificar').'/'.$Codigo_Confirmacion}}</a></p>
 </body>
 </html>

@@ -7,8 +7,7 @@
 @extends('layouts.app')
 @section('content')
  {!!Auth::User()!!}
-<a href="{{route('Usuario/Cambiar_Perfil')}}" >Modificar perfil</a>
-@can('create-tasks')
-dflksjlk
-@endcan
+<h1><a href="{{route('Usuario/Cambiar_Perfil')}}" >Modificar perfil</a></h1>
+<h1><a href="{{route('RolesPermisos/')}}">Modificar Permisos</a></h1>
+
 @endsection

@@ -25,6 +25,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property Collection|Role[] $roles
  * @property Collection|User[] $users
  *
+ * @method  Permission where()  where(fixed $param, fixed $param2)
+ * @method  Permission first() first(void)
+ * @method  Permission get() first(void)
+ *
  * @package App\Models
  */
 class Permission extends Model
@@ -59,4 +63,5 @@ class Permission extends Model
 	{
 		return $this->belongsToMany(User::class, 'users_permissions');
 	}
+	
 }

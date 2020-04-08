@@ -16,6 +16,6 @@
 	<b><a href="{{url('Recuperar').'/'.$Codigo_Confirmacion}}">
 		Reset password
 	</a></b> 	 	
-<a href="{{url('Recuperar').'/'.$Codigo_Confirmacion}}">	<p>{{url('Verificar').'/'.$Codigo_Confirmacion}}</p></a>
+<p><a href="{{url('Recuperar').'/'.$Codigo_Confirmacion}}">	{url('Verificar').'/'.$Codigo_Confirmacion}}</a></p>
 </body>
 </html>

@@ -27,7 +27,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property Collection|Membresia[] $membresias
  * @property Collection|Permission[] $permissions
  * @property Collection|User[] $users
- *
+ * @method  Role where()  where(fixed $param, fixed $param2)
+ * @method  Role first() first(void)
+ * @method  Role  get() get(void)
  * @package App\Models
  */
 class Role extends Model
@@ -65,9 +67,9 @@ class Role extends Model
 		return $this->hasMany(Membresia::class, 'ID_Rol_A_Recibir');
 	}
     	
-    /**
-     * Que permisos tiene este rol
-     * @return Permission
+    /** 
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
 	public function permissions()
 	{
