@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', "Publico\PublicaController@index")->name("/");
 Route::get("/login","Publico\PublicaController@login")->name('Login'); 
 Route::get("/Registro","Publico\PublicaController@Registro")->name("Registro");
