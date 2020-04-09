@@ -8,7 +8,7 @@
 @section('content') 
 <table border="1px">
   <tr>
-    <th>ID</th> <th>Name</th>  <th>Nombre de usuario</th><th>Roles</th> <th>Agregar permiso</th>
+    <th>ID</th> <th>Name</th>  <th>Nombre de usuario</th><th>Roles</th> <th>Agregar role</th>
   </tr>
 @foreach($Usuarios as $Usuario )
    <tr> 

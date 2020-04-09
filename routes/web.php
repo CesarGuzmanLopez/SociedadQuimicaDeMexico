@@ -31,33 +31,24 @@ Route::group(['middleware' =>"auth", 'prefix' => 'Usuario', 'as' => 'Usuario'], 
     Route::get("Cambiar_Perfil",            "Sesion\SesionController@Cambiar_Perfil")->name("/Cambiar_Perfil");
     Route::post("/Cambiar_Perfil_post","Sesion\SesionController@Cambiar_Perfil_post")->name("/Cambiar_Perfil_post");
 });
-Route::group(["middleware"=>'auth', 'prefix'=>'RolesPermisos', 'as'=>'RolesPermisos'],function(){
+Route::group(["middleware"=>['auth','can:mod-permisos'], 'prefix'=>'RolesPermisos', 'as'=>'RolesPermisos'],function(){
     Route::get('/', "Roles_y_permisos\RolesPermisos@index")->name('/');
     Route::get('/AgregarPermiso', "Roles_y_permisos\RolesPermisos@AgregarPermiso")->name('/AgregarPermiso');
     Route::get('/AgregarRol', "Roles_y_permisos\RolesPermisos@AgregarRol")->name('/AgregarRol');
-    
-    Route::get('/AgregarPermisoARol', 			  "Roles_y_permisos\RolesPermisos@AgregarPermisoARol")->name('/AgregarPermisoARol');
+    Route::get('/AgregarPermisoARol', "Roles_y_permisos\RolesPermisos@AgregarPermisoARol")->name('/AgregarPermisoARol');
     Route::get('/AgregarPermisoARol/{id_rol}', "Roles_y_permisos\RolesPermisos@AgregarPermisoARolID")->name('/AgregarPermisoARol/');
     Route::post('/AgregarPermisoARol_post', "Roles_y_permisos\RolesPermisos@AgregarPermisoARol_post")->name('/AgregarPermisoARol_post');
-    
     Route::get('/AgregarPermisoAUsuario', "Roles_y_permisos\RolesPermisos@AgregarPermisoAUsuario")->name('/AgregarPermisoAUsuario');
     Route::get('/AgregarPermisoAUsuario/{id_rol}', "Roles_y_permisos\RolesPermisos@AgregarPermisoAUsuarioID")->name('/AgregarPermisoAUsuario/');
     Route::post('/AgregarPermisoAUsuario_post', "Roles_y_permisos\RolesPermisos@AgregarPermisoAUsuario_post")->name('/AgregarPermisoAUsuario_post');
-
     Route::get('/AgregarRolAUsuario', "Roles_y_permisos\RolesPermisos@AgregarRolAUsuario")->name('/AgregarRolAUsuario');
     Route::get('/AgregarRolAUsuario/{id_rol}', "Roles_y_permisos\RolesPermisos@AgregarRolAUsuarioID")->name('/AgregarRolAUsuario/');
     Route::post('/AgregarRolAUsuario_post', "Roles_y_permisos\RolesPermisos@AgregarRolAUsuario_post")->name('/AgregarRolAUsuario_post');
-    
-    
-    
     Route::get('/CrudRolesYUsuario', "Roles_y_permisos\RolesPermisos@CrudRolesYUsuario")->name('/CrudRolesYUsuario');
-    
     Route::post('/AgregarPermisoPost',"Roles_y_permisos\RolesPermisos@AgregarPermisoPost")->name("/AgregarPermisoPost");
     Route::post('/ActualizarEliminarPermiso',"Roles_y_permisos\RolesPermisos@ActualizarEliminarPermiso")->name("/ActualizarEliminarPermiso");
     Route::post('/AgregarRolPost',"Roles_y_permisos\RolesPermisos@AgregarRolPost")->name("/AgregarRolPost");
     Route::post('/ActualizarRolrPermiso',"Roles_y_permisos\RolesPermisos@ActualizarEliminarRol")->name("/ActualizarEliminarRol");
-	Route::post("/CrudRolesYUsuarioPost",'Roles_y_permisos\RolesPermisos@CrudRolesYUsuarioPost')->name("/CrudRolesYUsuarioPost");
-    
-    
+	Route::post("/CrudRolesYUsuarioPost",'Roles_y_permisos\RolesPermisos@CrudRolesYUsuarioPost')->name("/CrudRolesYUsuarioPost"); 
 });
 //Route::get('/home', 'HomeController@index')->name('home');//->middleware('role:web-developer');;

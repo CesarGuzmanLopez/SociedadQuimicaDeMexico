@@ -38,20 +38,20 @@ trait HasRolesAndPermissions
     }
     /**
      * Verifica si un usuario tiene un permiso directo
-     * @param string $permission
+     * @param string $permission 
      * @return boolean
      */
     public function hasPermission($permission)
-    {
+    { 
         return (bool) $this->permissions->where('slug', $permission)->count();
     }
     
     /**
-     * verifica si un 
-     * @param string $permission
+     * 
+     * @param Permission $permission
      * @return boolean
      */
-    public function hasPermissionThroughRole($permission)
+    public function hasPermissionThroughRole(Permission $permission)
     {
         foreach ($permission->roles as $role){
             if($this->roles->contains($role))
@@ -65,6 +65,7 @@ trait HasRolesAndPermissions
      */
     function hasPermissionTo($permission)
     {
+    	
         return $this->hasPermissionThroughRole($permission) || $this->hasPermission($permission);
     }
     /**
@@ -82,6 +83,7 @@ trait HasRolesAndPermissions
      */
     public function givePermissionsTo(... $permissions)
     {
+    	
         $permissions = $this->getAllPermissions($permissions);
         if($permissions === null) {
             return $this;
