@@ -17,7 +17,8 @@
 			<div>Apellido <input type="text" name="Apellido"  value="{{old('Apellido')??Auth::user()->Apellido }}"></div>
 			<div>Telefono <input type="text" name="Telefono" value="{{old('Telefono')??Auth::user()->Telefono }}" ></div>
 			<div>Nombre de usuario <input type="text" name="Nombre_de_usuario" value="{{old('Nombre_de_usuario')??Auth::user()->Nombre_de_usuario }}" ></div>
-			<div>Fecha de Nacimiento <input type="date" name="Fecha_De_Nacimiento" value="{{old('Fecha_De_Nacimiento')??Auth::user()->Fecha_De_Nacimiento }}" ></div>
+			<div>Fecha de Nacimiento <input type="date" name="Fecha_De_Nacimiento" value="{{old('Fecha_De_Nacimiento')??Auth::user()->Fecha_De_Nacimiento }}" > </div>
+		
 			<div>Coreo electronico <input type="email" name="email" value="{{old('email')??Auth::user()->email }}" > </div>
 			<div>Grado_Academico
 				<select name="Grado_Academico">

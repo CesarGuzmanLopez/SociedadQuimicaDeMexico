@@ -31,6 +31,8 @@ Route::group(['middleware' =>"auth", 'prefix' => 'Usuario', 'as' => 'Usuario'], 
     Route::get('/', "Sesion\SesionController@index")->name("/"); 
     Route::get("Cambiar_Perfil",            "Sesion\SesionController@Cambiar_Perfil")->name("/Cambiar_Perfil");
     Route::post("/Cambiar_Perfil_post","Sesion\SesionController@Cambiar_Perfil_post")->name("/Cambiar_Perfil_post");
+   	Route::get("/Cambiar_Clave", "Sesion\SesionController@Cambiar_Clave")->name("/Cambiar_Clave");
+   	Route::post("/Cambiar_Clave", "Sesion\SesionController@Cambiar_ClavePost")->name("/Cambiar_ClavePost");
 });
 Route::group(["middleware"=>['auth','can:mod-permisos'], 'prefix'=>'RolesPermisos', 'as'=>'RolesPermisos'],function(){
     Route::get('/', "Roles_y_permisos\RolesPermisos@index")->name('/');
@@ -52,4 +54,13 @@ Route::group(["middleware"=>['auth','can:mod-permisos'], 'prefix'=>'RolesPermiso
     Route::post('/ActualizarRolrPermiso',"Roles_y_permisos\RolesPermisos@ActualizarEliminarRol")->name("/ActualizarEliminarRol");
 	Route::post("/CrudRolesYUsuarioPost",'Roles_y_permisos\RolesPermisos@CrudRolesYUsuarioPost')->name("/CrudRolesYUsuarioPost"); 
 });
+Route::group(["middleware"=>['auth','can:mod-usuarios'], 'prefix'=>'AdministrarUsuarios', 'as'=>'AdministrarUsuarios'],function(){
+	Route::get('/', "Administrar_Usuarios\AdministrarUsuarios@index")->name('/');
+	Route::get('/modificar/{id_user}', "Administrar_Usuarios\AdministrarUsuarios@modificar")->name('/modificar');
+	Route::post('/modificar', "Administrar_Usuarios\AdministrarUsuarios@modificarPost")->name("/modificarPost");
+	Route::get("/agregarUsuario","Administrar_Usuarios\AdministrarUsuarios@agregarUsuario")->name("/AgregarUsuario");
+	Route::post("/agregarPost","Administrar_Usuarios\AdministrarUsuarios@agregarPost")->name("/agregarPost");
+});
+
+
 //Route::get('/home', 'HomeController@index')->name('home');//->middleware('role:web-developer');;

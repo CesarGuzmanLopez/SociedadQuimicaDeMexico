@@ -6,7 +6,7 @@
 ?>
 @extends('layouts.app')
 @if(!isset($Recuperar))
-    @section('content')
+ @section('content')
     <form action="{{route('RecuperarPost')}}" method="post">
     	@csrf
             Correo o nombre de usuario
@@ -48,7 +48,6 @@
 			<button type="submit">Enviar</button>
 		</div>	
     		</form>
-    		
     	@endsection
    	@break
 @endswitch

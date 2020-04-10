@@ -98,7 +98,6 @@ class RolesPermisos extends Controller
     		'Permisos'=>$Permisos,
     	);
     	return view("RolesPermisos.CrudRolesYUsuario")->with($data);
-    	
     }
     
     /**

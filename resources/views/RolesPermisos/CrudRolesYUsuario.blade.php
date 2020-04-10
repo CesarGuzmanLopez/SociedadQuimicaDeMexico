@@ -28,19 +28,18 @@
 	<td>{{$Role->name}}
 	  	<form action="{{route('RolesPermisos/CrudRolesYUsuarioPost')}}" id="role_{{$Role->id}}" method="post"></form>
   		<input type="hidden" name="_token" value="{{csrf_token()}}" form="role_{{$Role->id}}"> 
-
   		<input type="hidden" name="id_Role" form="role_{{$Role->id}}" value="{{$Role->id}}">
   		<input type="hidden" name="Modificar" form="role_{{$Role->id}}" value="role">
 	</td> 
 	  		@foreach($Permisos as $Permiso)
 	  		<td>
-				<input type="checkbox" form="role_{{$Role->id}}" name="Permisos[]" value="{{$Permiso->id}}" {{($Role->permissions()->find($Permiso->id))?"checked": ""}}>
+				 ({{$Permiso->slug}})<input type="checkbox" form="role_{{$Role->id}}" name="Permisos[]" value="{{$Permiso->id}}" {{($Role->permissions()->find($Permiso->id))?"checked": ""}}>
 	  		</td>
 	  		@endforeach 
 	  		<td>
 	  			<button type="submit" form="role_{{$Role->id}}">Enviar moificar</button>
 	  		</td> 
-  </tr> 
+  </tr>
   @endforeach
   </tbody>
 </table>
@@ -74,15 +73,14 @@
 		<form action="{{route('RolesPermisos/CrudRolesYUsuarioPost')}}" id="FormUser_{{$Usuario->id}}" method="post"></form>
     	<input type="hidden" name="id_Usuario" value="{{$Usuario->id}}" form="FormUser_{{$Usuario->id}}">
   		<input type="hidden" name="Modificar" value="Usuario" form="FormUser_{{$Usuario->id}}">
- 	  	<input type="hidden" name="_token" value="{{csrf_token()}}" form="FormUser_{{$Usuario->id}}"> 
-  		
+ 	  	<input type="hidden" name="_token" value="{{csrf_token()}}" form="FormUser_{{$Usuario->id}}">
 	 {{$Usuario->name}} {{$Usuario->Apellido}} ({{ $Usuario->Nombre_de_usuario}}) </td>
 		@foreach($Roles as $Role)
-  		<td><input  type="checkbox" form="FormUser_{{$Usuario->id}}" name="Roles[]" value="{{$Role->id}}" {{($Usuario->roles()->find($Role->id))?"checked": ""}}></td>
+  		<td>({{$Role->slug}})<input  type="checkbox" form="FormUser_{{$Usuario->id}}" name="Roles[]" value="{{$Role->id}}" {{($Usuario->roles()->find($Role->id))?"checked": ""}}></td>
   	  	@endforeach 
   	  	@foreach($Permisos as $Permiso)
  			<td><input type="checkbox" form="FormUser_{{$Usuario->id}}" name="Permisos[]" value="{{$Permiso->id}}" {{($Usuario->permissions()->find($Permiso->id))?"checked": ""}}></td>
-	  	@endforeach
+	  	@endforeach 
   		<td>
 	  		<button type="submit" form="FormUser_{{$Usuario->id}}">Enviar moificar</button>
 	  	</td>

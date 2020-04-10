@@ -94,6 +94,7 @@ class PublicaController extends Controller
            if (Auth::attempt(['email' => $email, 'password' => $request->Password])) 
                return redirect("Usuario"); 
         }
+        
         return back();
     }
     /**
@@ -201,7 +202,7 @@ class PublicaController extends Controller
         $user->password =  bcrypt($request->password);
         $user->save();
         }catch (Exception $e){
-            return redirect()->route("Login");
+   
         }
         return redirect()->route("Login");   
    } 

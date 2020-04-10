@@ -28,7 +28,7 @@ class PermissionSeeder extends Seeder
     			),
     			array(
     					"name" => 'Modificar Usuarios',
-    					"slug" =>   'mod-Usuarios',
+    					"slug" =>   'mod-usuarios',
     			),
     			array(
     					"name" => 'Ver Stock',

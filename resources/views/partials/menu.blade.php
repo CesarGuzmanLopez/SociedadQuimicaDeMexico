@@ -11,6 +11,9 @@
     <a class="nav-link" href="{{ route('Usuario/') }}"    >
 			Usuario
     </a>
+    <a href="{{route('Usuario/Cambiar_Clave')}}">cambiar contraseña
+    
+    </a>
     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 			salir
     </a>                     

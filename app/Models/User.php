@@ -85,6 +85,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method User   where()  where(fixed $param, fixed $param2)
  * @method  User first() first(void)
  * @method  User  get() get(void)
+ * @method  User  find() find(string)
  * @package App\Models
  */
 class User extends Model

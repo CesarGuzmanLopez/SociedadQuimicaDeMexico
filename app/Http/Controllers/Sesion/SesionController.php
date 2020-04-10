@@ -4,6 +4,7 @@ namespace app\Http\Controllers\Sesion;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 /**
@@ -36,9 +37,9 @@ class SesionController extends Controller
     public function Cambiar_Perfil_post(Request $request) {
         $this->validate($request, [
             'name'                  => 'required|string|min:3|max:35',
-            'email'                 => 'required|email|min:3|max:35|unique:users',
+            'email'                 => 'required|email|min:3|max:35',
             'url_Pagina_Personal'=>"active_url|nullable",
-            'Nombre_de_usuario'=>"alpha_dash|nullable|unique:users",
+            'Nombre_de_usuario'=>"alpha_dash|nullable",
         ]);
         
         $user = User::where("id",Auth::user()->id)->first();
@@ -67,6 +68,26 @@ class SesionController extends Controller
         $user->path_Image = $path;
         $user->save();
         return redirect()->route("Usuario/");   
+    }
+    public function Cambiar_Clave(){
+    	 return  view("Usuario.Cambiar_Clave");   
+    }
+    public function Cambiar_ClavePost(Request $request ){
+    	$request->validate([
+    			'g-recaptcha-response' => 'required|captcha',
+    	]);
+    	$this->validate($request, [
+    			'old_password'                 => 'required',
+    			'password'              => 'required|min:4|max:60',
+    			'password_confirmation' => 'required|same:password',
+    	]);
+    	if (Hash::check($request->old_password,Auth::user()->getAuthPassword() )) {
+    		$user = User::find(Auth::user()->id);
+     		$user->password =bcrypt($request->password); 
+    		$user->save();
+    		return redirect()->route("Usuario/");
+    	} 	
+    	return back(302);
     }
 }
 
