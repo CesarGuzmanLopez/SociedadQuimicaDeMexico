@@ -75,7 +75,7 @@ class PublicaController extends Controller
             $user->save();
       
         } catch (Exception $e) {
-            
+        	
         } 
         return "se ha enviado un correo <a href='/'>regresar</a> <b>falta vista para este mensaje</b>";
     }
@@ -116,25 +116,20 @@ class PublicaController extends Controller
      * @param String $request
      * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Http\RedirectResponse
      */
-    public function Verificar($request){
-        
+    public function Verificar($request){ 
         $user = User::where("Codigo_Confirmacion",$request)->first();
         if(!$user)  return redirect("/");
         $user->email_verified_at =date('Y-d-m H:i:s.v');
         $user->Codigo_Confirmacion=null;
-        $user->save();
-        
+        $user->save(); 
         return redirect()->route("Login");
-    }
-
-
+    } 
     /**
      * @param Request $request
      * @param User $user
      * @return string
      */
-    public function Recuperar_post(Request $request){
-        
+    public function Recuperar_post(Request $request){ 
         $request->validate([
             'g-recaptcha-response' => 'required|captcha',
         ]); 
@@ -189,7 +184,7 @@ class PublicaController extends Controller
         );
         return view('Recuperar')->with($data);
     }
-    function newpass(Request $request) {
+   public  function newpass(Request $request) {
         $this->validate($request, [
             'token'                     =>"required",
             'password'              => 'required|min:4|max:60',
@@ -201,9 +196,10 @@ class PublicaController extends Controller
         $user->password_reset->delete();
         $user->password =  bcrypt($request->password);
         $user->save();
-        }catch (Exception $e){
-   
+        }catch (Exception $e){   	
         }
         return redirect()->route("Login");   
    } 
+
+   
 }

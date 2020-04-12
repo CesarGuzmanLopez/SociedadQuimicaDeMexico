@@ -1,7 +1,7 @@
 <?php
 /**
 *    @author Cesar Gerardo Guzman Lopez mail 88-8live.com.mx 
-*    Vista principal subir bajar y cambiar  roles y permisos
+*    Vista principal subir bajar y cambiar datos de usuario
 */
 ?>
 @extends('layouts.app')
@@ -13,7 +13,7 @@
 			<div>Apellido <input type="text" name="Apellido"  value="{{old('Apellido')??$Usuario->Apellido }}"></div>
 			<div>Telefono <input type="text" name="Telefono" value="{{old('Telefono')??$Usuario->Telefono }}" ></div>
 			<div>Nombre de usuario <input type="text" name="Nombre_de_usuario" value="{{old('Nombre_de_usuario')??$Usuario->Nombre_de_usuario }}" ></div>
-			<div>Fecha de Nacimiento <input type="date" name="Fecha_De_Nacimiento" value="{{old('Fecha_De_Nacimiento')?? $Usuario->Fecha_De_Nacimiento->format('Y-m-d') }}" > </div>
+			<div>Fecha de Nacimiento <input type="date" name="Fecha_De_Nacimiento" value="{{old('Fecha_De_Nacimiento')?? ($Usuario->Fecha_De_Nacimiento)?$Usuario->Fecha_De_Nacimiento->format('Y-m-d'):'' }}" > </div>
 			<div>Coreo electronico <input type="email" name="email" value="{{old('email')??$Usuario->email }}" > </div>
 			<div>Grado_Academico
 				<select name="Grado_Academico">
@@ -38,18 +38,15 @@
 			</div> 
 			<div>
 			Role 
-			<select name="Role">
-			
+			<select name="Role"> 
 			@foreach($Roles as $Role)
 				<option value="{{$Role->id}}" {{($Usuario->Roles()->first()->id === $Role->id )?"selected":""  }}>
 					{{$Role->name}}
 				</option>
 			@endforeach
 			</select>
-			<div>
-			contraseña  <input name="Password" type="password"></div>
-			</div>
-			
+			<div>contraseña  <input name="Password" type="password"></div>
+			</div> 
 			<button type="submit">Enviar </button>
 			</form>
 @endsection

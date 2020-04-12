@@ -30,6 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method  Role where()  where(fixed $param, fixed $param2)
  * @method  Role first() first(void)
  * @method  Role  get() get(void)
+ * @method  Role  find() get(void)
  * @package App\Models
  */
 class Role extends Model

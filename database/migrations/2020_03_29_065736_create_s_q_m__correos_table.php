@@ -19,8 +19,6 @@ class CreateSQMCorreosTable extends Migration
             $table->string("Correo");
             $table->string("Alias_Al_Correo");
             $table->timestamps();
-            
-            
             $table->foreign('ID_User')
             ->references('id')->on('users')->onDelete("cascade");
            

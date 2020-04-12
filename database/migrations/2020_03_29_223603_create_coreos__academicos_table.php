@@ -23,8 +23,7 @@ class CreateCoreosAcademicosTable extends Migration
             ->references('id')->on('users')
             ->cascadeOnDelete();
         });
-    }
-
+    } 
     /**
      * Reverse the migrations.
      *

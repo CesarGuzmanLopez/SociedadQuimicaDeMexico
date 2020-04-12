@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use App\Models\CodigoPostal;
+use App\Models\Direccione;
 
 /**
  * Controlador para todo lo que tenga que ver con la sesion
@@ -89,5 +91,28 @@ class SesionController extends Controller
     	} 	
     	return back(302);
     }
+    public function IngresarDireccion(Request $request) {
+    	$cp =0;
+    	
+    	$datosCP="";
+    	if($request->has("cp")){
+    		$cp = $request->cp;
+    		$datosCP = CodigoPostal::where("Codigo_Postal",$cp )->first();
+    	}
+    	$data =array(
+    			'direcciones'=> User::find(Auth::user()->getAuthIdentifier())->direcciones,
+    		'datosCP'=>$datosCP,
+    		'cp'=>$cp, 	
+    	);
+    	return view("Usuario.IngresarDireccion")->with($data);
+    }
+    public function ingresarDireccionPost(Request $request){
+    	$direccion =new  Direccione($request->all());;
+    	$direccion->ID_User = Auth::user()->getAuthIdentifier();
+    	
+    	$direccion->save();
+    	return redirect()->route("Usuario/IngresarDireccion");
+    }
+    
 }
 

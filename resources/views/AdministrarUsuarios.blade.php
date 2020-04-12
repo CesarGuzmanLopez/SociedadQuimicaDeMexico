@@ -11,9 +11,6 @@
 	<thead class="thead-ligh">
 				<tr >
 			<th colspan="7" class="text-center" >Usuarios</th>
-	 
-			 
-			
 		</tr>
 		<tr >
 			<th class="" >Nombre</th>

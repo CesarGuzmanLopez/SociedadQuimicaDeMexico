@@ -82,7 +82,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Collection|Role[] $roles
  * @property Collection|UsuarioMembresium[] $usuario_membresia
  * @property Collection|UsuariosMembresia[] $usuarios__membresias
- * @method User   where()  where(fixed $param, fixed $param2)
+ *  @method User   where()  where(fixed $param, fixed $param2)
  * @method  User first() first(void)
  * @method  User  get() get(void)
  * @method  User  find() find(string)
@@ -123,112 +123,179 @@ class User extends Model
 	    'path_Image',
 	    'Grado_Academico',
 	];
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function asistentes_cursos()
 	{
 		return $this->hasMany(AsistentesCurso::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function bolsa__trabajos()
 	{
 		return $this->hasMany(BolsaTrabajo::class, 'ID_User');
 	}
 
+	/**
+	 * 
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
 	public function calificacion_respuesta()
 	{
 		return $this->hasMany(CalificacionRespuestum::class);
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function carritos()
 	{
 		return $this->hasMany(Carrito::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function categorias()
 	{
 		return $this->hasMany(Categoria::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function chat_participantes()
 	{
 		return $this->hasMany(ChatParticipante::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function congresos()
 	{
 		return $this->hasMany(Congreso::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function coreos_academicos()
 	{
 		return $this->hasMany(CoreosAcademico::class, 'ID_user');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function cupones()
 	{
 		return $this->hasMany(Cupone::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function cursos()
 	{
 		return $this->hasMany(Curso::class, 'ID_Usuario_Responsable_Curso');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function descuentos()
 	{
 		return $this->hasMany(Descuento::class, 'ID_Usuario_Aplica');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function direcciones()
 	{
 		return $this->hasMany(Direccione::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function elecciones()
 	{
 		return $this->hasMany(Eleccione::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function elecciones_candidatos()
 	{
 		return $this->hasMany(EleccionesCandidato::class, 'ID_Candidato');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function elecciones_eleccions()
 	{
 		return $this->hasMany(EleccionesEleccion::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function elecciones_lista_cand_opcs()
 	{
 		return $this->hasMany(EleccionesListaCandOpc::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function elecciones_lista_votantes()
 	{
 		return $this->hasMany(EleccionesListaVotante::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasOne
+ */
 	public function elecciones_observadore()
 	{
 		return $this->hasOne(EleccionesObservadore::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function elecciones_opcions()
 	{
 		return $this->hasMany(EleccionesOpcion::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function elecciones_votantes()
 	{
 		return $this->hasMany(EleccionesVotante::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function eventos()
 	{
 		return $this->hasMany(Evento::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function groups()
 	{
 		return $this->hasMany(Group::class, 'ID_User');
@@ -239,73 +306,114 @@ class User extends Model
 		return $this->hasMany(InscritosCongreso::class, 'ID_User');
 	}
 
+	/**
+	 * 
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
 	public function membresias()
 	{
 		return $this->hasMany(Membresia::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function paginas()
 	{
 		return $this->hasMany(Pagina::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function paquetes()
 	{
 		return $this->hasMany(Paquete::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function participante_seccions()
 	{
 		return $this->hasMany(ParticipanteSeccion::class, 'ID_User');
 	}
-    /**
-     * @return;
-     */
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasOne
+ */
 	public function password_reset()
 	{
 	    return $this->hasOne(password_resets::class, 'email', 'email');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function patrocinadores()
 	{
 		return $this->hasMany(Patrocinadore::class, 'ID_Usuario_Contacto');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function postulaciones()
 	{
 		return $this->hasMany(Postulacione::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function preguntas()
 	{
 		return $this->hasMany(Pregunta::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function productos__digitales()
 	{
 		return $this->hasMany(ProductosDigitale::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function products()
 	{
 		return $this->hasMany(Product::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function publicaciones()
 	{
 		return $this->hasMany(Publicacione::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function recursos__digitales()
 	{
 		return $this->hasMany(RecursosDigitale::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function respuestas()
 	{
 		return $this->hasMany(Respuesta::class, 'ID_user');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function revistas()
 	{
 		return $this->hasMany(Revista::class, 'ID_User');
@@ -315,22 +423,34 @@ class User extends Model
 	{
 		return $this->hasMany(SQMCorreo::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function secciones_sqms()
 	{
 		return $this->hasMany(SeccionesSqm::class, 'Vocal_6');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function sugerencias()
 	{
 		return $this->hasMany(Sugerencia::class, 'ID_Revisor');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function tickets()
 	{
 		return $this->hasMany(Ticket::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function tipo_participante_seccions()
 	{
 		return $this->hasMany(TipoParticipanteSeccion::class, 'ID_User');
@@ -352,12 +472,18 @@ class User extends Model
 	{
 		return $this->belongsToMany(Role::class, 'users_roles');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function usuario_membresia()
 	{
 		return $this->hasMany(UsuarioMembresium::class, 'ID_User');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function usuarios__membresias()
 	{
 		return $this->hasMany(UsuariosMembresia::class, 'ID_User');

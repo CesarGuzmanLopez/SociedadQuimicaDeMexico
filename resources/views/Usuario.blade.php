@@ -14,4 +14,5 @@
 @can('mod-usuarios') 
 <h1><a href="AdministrarUsuarios">Administrar usuarios</a></h1> 
 @endcan
+<h1><a href="{{route('Usuario/IngresarDireccion')}}" >ingresar Direccion</a></h1>
 @endsection

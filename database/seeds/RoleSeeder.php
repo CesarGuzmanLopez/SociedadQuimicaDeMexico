@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use App\Models\Role;
+use App\Models\Permission;
 
 class RoleSeeder extends Seeder
 {
@@ -55,8 +56,8 @@ class RoleSeeder extends Seeder
     					"slug" =>   'adm-permisos',
     			),
     			array(
-    					"name" => 'Administrador de membrecia',
-    					"slug" =>   'adm-membrecia',
+    					"name" => 'Administrador de membresia',
+    					"slug" =>   'adm-membresia',
     			),
     			array(
     					"name" => 'Administrador de paginas',
@@ -88,6 +89,8 @@ class RoleSeeder extends Seeder
     	
     			),
     	); 
+    	
+    	
     	$i=0;
     	foreach($data as $dato){
     		$i++;
@@ -97,7 +100,11 @@ class RoleSeeder extends Seeder
     		$temp->slug=$dato['slug'];
     		$temp->save();
      	}
-    	
+    	$temp = Role::find(1);
+    	$Permisos =  Permission::get();
+    	foreach( $Permisos as $Permiso){
+    		$temp->permissions()->attach($Permiso->id);
+    	}
     	/*
     	 $manager = new Role();
     	 $manager->name = 'Project Manager';

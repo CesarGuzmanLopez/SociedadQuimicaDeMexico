@@ -21,7 +21,6 @@ class CreateRecursosDigitalesTable extends Migration
             $table->string("Autores")->nullable();
             $table->integer("Numero_Descargas");
             $table->string("Tipo")->nullable()->comment("especificamente por si es necesario medir el acceso");
-            
             $table->unsignedBigInteger("ID_Publicacion")->nullable();
             $table->unsignedBigInteger("ID_Categoria")->nullable();
             $table->unsignedBigInteger("ID_User")->nullable();            

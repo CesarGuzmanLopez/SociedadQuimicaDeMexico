@@ -3,7 +3,6 @@
 use Illuminate\Database\Seeder;
 use App\Models\Role;
 use App\Models\User;
-use App\Models\Permission;
 
 
 class UserSeeder extends Seeder
@@ -24,7 +23,7 @@ class UserSeeder extends Seeder
             $user0 = new User();
             $user0->name = 'Cesar'; 
             $user0->email = 'admin@admin.com';
-            $user0->Nombre_de_usuario="Administrador";
+            $user0->Nombre_de_usuario="Cesar_G";
             $user0->password = bcrypt('password');
             $user0->save();
             $user0->roles()->attach($root);

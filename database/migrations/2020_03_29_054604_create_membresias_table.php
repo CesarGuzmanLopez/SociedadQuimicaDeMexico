@@ -17,7 +17,6 @@ class CreateMembresiasTable extends Migration
             $table->id();
             $table->float("Costo");
             $table->string("Duracion");
-            
             $table->date("Inicio_Disponibilidad")->nullable();
             $table->date("fin_disponibilidad")->nullable();
             $table->unsignedBigInteger("ID_Rol_A_Recibir");
@@ -43,6 +42,22 @@ class CreateMembresiasTable extends Migration
             ->references('id')->on('users')
             ->onDelete('cascade'); 
         });
+        	Schema::create('Usuario_Membresia', function (Blueprint $table) {
+        		
+        		$table->unsignedBigInteger("ID_User");
+        		$table->unsignedBigInteger("ID_Membresia");
+        		
+        		$table->date("Inicio");
+        		$table->date("Fin");
+        		$table->foreign('ID_User')
+        		->references('id')->on('users')
+        		->cascadeOnDelete();
+        		
+        		$table->foreign('ID_Membresia')
+        		->references('id')->on('membresias')
+        		->cascadeOnDelete();
+        		$table->primary(['ID_User','ID_Membresia']);
+        	});
     }
 
     /**
@@ -52,6 +67,7 @@ class CreateMembresiasTable extends Migration
      */
     public function down()
     {
+    	Schema::dropIfExists('Usuario_Membresia'); 
         Schema::dropIfExists('membresias');
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Created by Reliese Model.
+ * Created by Ususario compra memebresia
  */
 
 namespace App\Models;
@@ -49,17 +49,26 @@ class UsuariosMembresia extends Model
 		'Fin',
 		'ID_Ticket'
 	];
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+ */
 	public function membresia()
 	{
 		return $this->belongsTo(Membresia::class, 'ID_Membresia');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+ */
 	public function ticket()
 	{
 		return $this->belongsTo(Ticket::class, 'ID_Ticket');
 	}
-
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+ */
 	public function user()
 	{
 		return $this->belongsTo(User::class, 'ID_User');

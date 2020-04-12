@@ -5,7 +5,7 @@ namespace app\Http\Controllers\Administrar_Usuarios;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Role;
+use App\Models\Role; 
 /**
  *
  * @author 88-8

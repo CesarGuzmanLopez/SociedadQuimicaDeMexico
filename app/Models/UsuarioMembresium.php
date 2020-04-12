@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Created by Reliese Model.
+ * @author Usuario tiene membresia
  */
 
 namespace App\Models;
 
-use Carbon\Carbon;
+
 use Illuminate\Database\Eloquent\Model;
 
 /**

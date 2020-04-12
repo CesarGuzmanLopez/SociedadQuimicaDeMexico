@@ -31,7 +31,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property User $user
  * @property Collection|UsuarioMembresium[] $usuario_membresia
  * @property Collection|UsuariosMembresia[] $usuarios__membresias
- *
+ *  @method Membresia   where()  where(fixed $param, fixed $param2)
+ * @method  Membresia first() first(void)
+ * @method  Membresia  get() get(void)
+ * @method  Membresia  find() find(string)
  * @package App\Models
  */
 class Membresia extends Model
@@ -63,21 +66,37 @@ class Membresia extends Model
 		'Activo',
 		'ID_User'
 	];
-
+ 	/**
+ 	 * 
+ 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+ 	 */
 	public function role()
 	{
 		return $this->belongsTo(Role::class, 'ID_Rol_A_Recibir');
 	} 
+	
+	/**
+	 * 
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
 	public function user()
 	{
 		return $this->belongsTo(User::class, 'ID_User');
 	}
-
+	
+/**
+ * 
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
 	public function usuario_membresia()
 	{
 		return $this->hasMany(UsuarioMembresium::class, 'ID_Membresia');
 	}
 
+	/**
+	 * 
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
 	public function usuarios__membresias()
 	{
 		return $this->hasMany(UsuariosMembresia::class, 'ID_Membresia');

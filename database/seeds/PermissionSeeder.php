@@ -47,12 +47,12 @@ class PermissionSeeder extends Seeder
     					"slug" =>   'mod-permisos',
     			),
     			array(
-    					"name" => 'Modificar membrecia',
-    					"slug" =>   'mod-membrecia', 
+    					"name" => 'Modificar membresia',
+    					"slug" =>   'mod-membresia', 
     			),
     			array(
     					"name" => 'Modificar paginas',
-    					"slug" =>   'Mod-paginas', 
+    					"slug" =>   'mod-paginas', 
     			),
     			array(
     					"name" => 'Administrador de eventos',
