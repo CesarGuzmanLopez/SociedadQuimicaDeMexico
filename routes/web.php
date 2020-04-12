@@ -66,10 +66,12 @@ Route::group(["middleware"=>['auth','can:mod-usuarios'], 'prefix'=>'AdministrarU
 }); 
 Route::group(["middleware"=>['auth','can:mod-membresia'], 'prefix'=>'Membresia', 'as'=>'Membresia'], function () {
 	$M ="Membresia\MembresiaController"; 
-	Route::get('/', "$M@index")->name('/'); 
-});
+	Route::get('/', "$M@index")->name('/');
+	
+}); 
 
-	//can
+
+//can
 Route::group(["middleware"=>['auth'], 'prefix'=>'Publicaciones', 'as'=>'Publicaciones'], function () {
 	$P ="Publicaciones\PublicacionesController";
 	Route::get('/', "$P@index")->name('/');
