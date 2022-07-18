@@ -36,7 +36,7 @@
         "@fortawesome/fontawesome-free": "^5.13.0",
         "bootstrap-vue": "^2.9.0",
         "ckeditor": "^4.12.1",
-        "jquery-ui": "^1.12.1",
+        "jquery-ui": "^1.13.2",
         "vue-free-transform": "^1.0.11"
     }
 }
